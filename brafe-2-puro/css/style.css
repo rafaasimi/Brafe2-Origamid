@@ -1,0 +1,269 @@
+/* RESET */
+
+body, p, h1, h2, ul, li {
+    margin: 0px;
+    padding: 0px;
+}
+
+li {
+    list-style: none;
+    /* Utilizado para retirar todos os estilos da lista */
+}
+
+body {
+    font-family: Georgia, serif;
+    color: #252525;
+}
+
+* {
+    box-sizing: border-box;
+    /* Utilizado para que os valores dos paddings não some com o width da box. */
+    /* Padrão: content-box (Ex: width: 180px / padding: 20px = 180+20+20=220px*/
+}
+
+/* HEADER MENU */
+
+.header-informacoes {
+    font-size: 0.875em;
+    background: #D6D3C8;
+    padding: 5px 0;
+    text-align: center;
+}
+
+.header-logo img {
+    display: block;
+    /* Retira os 3px de baixo da imagem, deixando a box no tamanho exato */
+    margin: 40px auto;
+    /* Elementos blocos conseguem ser centralizados pois a box tem altura e largura definida */
+}
+
+.header-menu {
+    border-top: 3px solid #D6D3C8;
+    border-bottom: 3px solid #D6D3C8;
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px 0;
+}
+
+.header-menu li {
+    display: inline-block;
+    /* Tem caracteristica inline mas são blocos para que seja possivel influenciar nos paddings */
+}
+
+.header-menu a {
+    display: block;
+    /* Caracteristica de bloco para que seja possivel utilizar os paddings */
+    padding: 5px 10px 5px 0;
+    text-decoration: none;
+    color: #252525;
+    font-size: 1.125em;
+}
+
+.header-menu li a::before {
+    /* Utilizo o before para adicionar o simbolo antes do 'a' */
+    content: '•';
+    padding-right: 10px;
+}
+
+.header-menu li:first-child a::before {
+    content: '';
+}
+
+/* CONTEÚDO */
+
+.container {
+    max-width: 960px;
+    /* largura máxima do container/conteúdo e que seja possivel centralizar*/
+    margin: 0 auto;
+}
+
+@media (min-width: 740px) and (max-width: 980px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (max-width: 739px) {
+    .container {
+        max-width: 300px;
+    }
+}
+
+.container::after, .container::before {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+/* FILTRO */
+
+.filtro {
+    background: #e7e4d8;
+    border: 3px solid #D6D3C8;
+    width: 300px;
+    margin: 0px 10px;
+    padding: 20px;
+    float: left;
+    /* Flutuar a esquerda para que os itens subam para a direita */
+}
+
+@media (min-width: 740px) and (max-width: 980px) {
+    .container {
+        max-width: 720px;
+    }
+    .filtro {
+        width: 220px;
+    }
+}
+
+@media (max-width: 739px) {
+    .container {
+        max-width: 300px;
+    }
+    .filtro {
+        display: none;
+    }
+}
+
+.filtro h2 {
+    font-size: 1.125em;
+    padding: 10px 0;
+}
+
+.filtro ul {
+    border-top: 3px solid #c0beb4;
+    border-bottom: 3px solid #c0beb4;
+    padding: 10px 0;
+}
+
+.filtro li {
+    font-style: italic;
+    font-size: 1.125em;
+    line-height: 2;
+}
+
+.filtro li::after {
+    content: '';
+    display: block;
+    /* Caracteristica em bloco para aplicar largura e altura */
+    width: 20px;
+    height: 20px;
+    border: 3px solid #c0beb4;
+    float: right;
+    margin-top: 5px;
+}
+
+.sabor {
+    overflow: hidden;
+}
+
+.sabor span {
+    text-indent: -200px;
+    /* Identação negativa para sumir com o texto da tela */
+    display: inline-block;
+    /* Caracteristica de bloco para que seja possivel usar a tag de identação */
+    width: 15px;
+    height: 15px;
+    background: currentColor;
+    border-radius: 50%;
+    vertical-align: middle;
+    /* Centraliza o conteúdo na line-height do .filtro li */
+}
+
+.sabor-3 {
+    color: #492901;
+    box-shadow: 20px 0 0 0, 40px 0 0 0;
+    /* Crio duas sombras p/ ter 3 simbolos */
+}
+
+.sabor-4 {
+    color: #c17139;
+    box-shadow: 20px 0 0 0, 40px 0 0 0, 60px 0 0 0;
+    /* Crio três sombras p/ ter 4 simbolos */
+}
+
+.sabor-5 {
+    color: #d7a54d;
+    box-shadow: 20px 0 0 0, 40px 0 0 0, 60px 0 0 0, 80px 0 0 0;
+    /* Crio quatro sombras p/ ter 5 simbolos */
+}
+
+/* PRODUTOS */
+
+.produtos {
+    width: 620px;
+    margin: 0 10px;
+    float: left;
+}
+
+.produtos h1 {
+    font-size: 3em;
+    font-weight: normal;
+    /* Retira o bold da font */
+}
+
+.produtos li {
+    width: 300px;
+    float: left;
+    /* Flutua todos os itens/blocos para a esquerda */
+}
+
+.produtos li:nth-child(even) {
+    margin-left: 20px;
+}
+
+.produtos li img {
+    display: block;
+    /* Caracteristica de bloco */
+    max-width: 100%;
+    /* Defino largura máxima para ajudar no responsivo */
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 3px #252525;
+    /* Aumenta a sombra proporcionalmente a minha borda */
+    margin: 40px 3px 0 3px;
+    /* Shadow não é considerado conteúdo, assim é necessário alinha-la ao conteúdo */
+}
+
+.produtos li span {
+    background: #e7e4d8;
+    padding: 10px;
+    font-size: 0.875em;
+    font-weight: bold;
+    position: relative;
+    /* Relative - Começa a aceitar valores de top e bottom */
+    top: -15px;
+}
+
+.produtos li h2 {
+    font-size: 0.875em;
+    font-weight: normal;
+}
+
+@media (min-width: 740px) and (max-width: 980px) {
+    .produtos {
+        width: 460px;
+        /* TAMANHO CONTAINER/QUANTIDADE GRID*QUANTIDADE QUE TENHO-GUTTER */
+        /* 720/12*8-20=460PX */
+    }
+    .produtos li {
+        width: 220px;
+    }
+}
+
+@media (max-width: 739px) {
+    .produtos {
+        width: 300px;
+    }
+    .produtos li {
+        width: 140px;
+    }
+}
+
+.footer {
+    background: #e7e4d8;
+    text-align: center;
+    padding: 60px 0;
+    font-size: 1.125em;
+    line-height: 1.4em;
+    margin-top: 80px;
+}
